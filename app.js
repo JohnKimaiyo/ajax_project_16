@@ -42,8 +42,38 @@ postButton.addEventListener('click', function () {
     http.post(url, employee, (data) => {
         alert(JSON.stringify(data));
         fetchEmployees();
-
-
-
     })
 })
+
+
+// put request
+let putButton = document.querySelector('put-btn');
+putButton.addEventListener('click', function () {
+    let empID = '_abdce';
+    let employee = {
+        id: empID,
+        first_name: 'wilson',
+        email: 'johnwislon@gmail.com',
+        gender: 'male',
+        ip_address: '255.255.255.255'
+    }
+    let url = `${serverURL}/employee/${empID}`;
+
+    // DELETE button
+    let deleteButton = document.querySelector('#delete-btn');
+    deleteButton.addEventListener('click', function () {
+        let employeeID = `_vwxyz`,
+            let url = `${serverURL}/employee`;
+        let http = new brainhttp();
+        http.delete(url, (data) => {
+            alert(JSON.stringify(data));
+            fetchEmployees();
+        })
+    })
+
+
+
+
+
+})
+
